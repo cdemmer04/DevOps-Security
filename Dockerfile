@@ -1,27 +1,26 @@
-# Use an official Python runtime as a parent image
+# Use Python 3.11 because the project requires ^3.11
 FROM python:3.11-slim-bookworm
 
-# Set work directory in the container
+# Set work directory
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends pipx \
-    && rm -rf /var/lib/apt/lists/*
+# Install Poetry
+RUN pip install --no-cache-dir poetry
 
-# Install poetry
-RUN /usr/bin/pipx install poetry
+# Configure Poetry not to create a virtual environment
+RUN poetry config virtualenvs.create false
 
-# Copy only requirements to cache them in docker layer
-COPY /content/pyproject.toml /content/poetry.lock /app/
+# Copy dependency files first for Docker caching
+COPY pyproject.toml poetry.lock ./
 
-# Project initialization
-RUN /root/.local/bin/poetry install --no-interaction --no-ansi --no-root
+# Install dependencies
+RUN poetry install --no-interaction --no-ansi --no-root
 
-# Copying the project files into the container
-COPY /content/. /app/
+# Copy project files
+COPY . .
 
-# Expose webserver port
-# EXPOSE 5000
+# Expose Flask port
+EXPOSE 5000
 
-# Run the webserver
-CMD ["/root/.local/bin/poetry", "run", "flask", "run", "-h", "0.0.0.0"]
+# Run Flask
+CMD ["flask", "run", "-h", "0.0.0.0", "-p", "5000"]
