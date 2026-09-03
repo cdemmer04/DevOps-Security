@@ -1,26 +1,20 @@
-# Use Python 3.11 because the project requires ^3.11
 FROM python:3.11-slim-bookworm
 
-# Set work directory
 WORKDIR /app
 
-# Install Poetry
 RUN pip install --no-cache-dir poetry
 
-# Configure Poetry not to create a virtual environment
 RUN poetry config virtualenvs.create false
 
-# Copy dependency files first for Docker caching
+# Kopieer de Poetry-bestanden vanuit content
 COPY content/pyproject.toml content/poetry.lock ./
 
-# Install dependencies
+# Installeer dependencies
 RUN poetry install --no-interaction --no-ansi --no-root
 
-# Copy project files
-COPY . .
+# Kopieer de daadwerkelijke applicatie naar /app
+COPY content/ .
 
-# Expose Flask port
 EXPOSE 5000
 
-# Run Flask
-CMD ["flask", "run", "-h", "0.0.0.0", "-p", "5000"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
