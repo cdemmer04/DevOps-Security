@@ -17,10 +17,10 @@ html, body {
     top: 0;
     left: 0;
     right: 0;
-    color: rgb(255, 0, 0);
+    color: white;
     z-index: 1;
     transition: background-color 1s;
-    background-color: rgba(65, 92, 63, 0);
+    background-color: rgba(63,77,92,0);
     padding: 8px 12px;
   }
   
