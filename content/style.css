@@ -25,7 +25,7 @@ html, body {
   }
   
   body.scrolled header, input.fake:checked + header {
-    background-color: rgba(0, 212, 18, 0.85);
+    background-color: rgba(63,77,92,0.85);
   }
   
   .modal {
