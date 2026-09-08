@@ -8,7 +8,6 @@ authors = ["Saxion"]
 python = "^3.11"
 flask = "^1.1.2"
 markupsafe = "2.0.1"
-werkzeug = ">=3.0.3,<4.0"
 
 [tool.poetry.dev-dependencies]
 
