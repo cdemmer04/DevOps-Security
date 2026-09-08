@@ -24,4 +24,6 @@ spec:
           - containerPort: 5000
       imagePullSecrets:
         - name: my-registry-secret
+      securityContext:
+        runAsNonRoot: true
          
