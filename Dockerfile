@@ -10,7 +10,6 @@ RUN poetry config virtualenvs.create false
 COPY content/pyproject.toml content/poetry.lock ./
 
 # Installeer dependencies
-RUN poetry lock
 RUN poetry install --no-interaction --no-ansi --no-root
 
 # Kopieer de daadwerkelijke applicatie naar /app
