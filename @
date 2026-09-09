@@ -1,0 +1,16 @@
+Week 3: Add scan job to pipeline
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Wed Sep 9 10:28:09 2026 +0200
+#
+# On branch week3
+# Your branch is up to date with 'origin/week3'.
+#
+# Changes to be committed:
+#	modified:   .github/workflows/build.yaml
+#
+# Changes not staged for commit:
+#	modified:   .github/workflows/build.yaml
+#
