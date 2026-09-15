@@ -7,6 +7,18 @@ import quoter_templates as templates
 app = Flask(__name__)
 app.static_folder = '.'
 
+# Add security headers
+@app.middleware("http")
+async def add_security_headers(request, call_next):
+    response = await call_next(request)
+
+    response.headers["Strict-Transport-Security"] = (
+        "max-age=31536000; includeSubDomains"
+    )
+    response.headers["X-Content-Type-Options"] = "nosniff"
+
+    return response
+
 # Open the database. Have queries return dicts instead of tuples.
 # The use of `check_same_thread` can cause unexpected results in rare cases. We'll
 # get rid of this when we learn about SQLAlchemy.
