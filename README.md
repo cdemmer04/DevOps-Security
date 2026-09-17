@@ -1,4 +1,5 @@
 # DevOps Security
-# This si the template repository.
-# Copy this repository to your own newly created respository
 
+Template repository for the DevOps Security project.
+
+Use this repository as a starting point by copying it to your own newly created repository.
