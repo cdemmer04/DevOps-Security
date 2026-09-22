@@ -109,7 +109,7 @@ expose:
     # loadBalancer-specific labels
     labels: {}
     sourceRanges: []
-
+#test
 # The external URL for Harbor core service. It is used to
 # 1) populate the docker/helm commands showed on portal
 # 2) populate the token service URL returned to docker client
