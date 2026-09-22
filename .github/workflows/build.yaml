@@ -5,7 +5,7 @@ on:
     paths-ignore:
       - docs/**
       - '**/*.md'
-      - harbor/**
+      - 'harbor/**'
 
   workflow_dispatch:
 
