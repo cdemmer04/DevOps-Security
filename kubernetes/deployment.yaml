@@ -22,7 +22,6 @@ spec:
         imagePullPolicy: Always
         ports:
           - containerPort: 5000
-      imagePullPolicy: Always
       imagePullSecrets:
         - name: my-registry-secret
          
