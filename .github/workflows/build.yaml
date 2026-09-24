@@ -102,6 +102,16 @@ jobs:
     needs: [ deploy ]
     runs-on: ubuntu-latest
     steps:
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_LOGIN }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+      - name: Run Docker container for postman tests
+        run: |
+          docker run -d -p 80:5000 cdemmer04/student-app:latest
+
       - uses: postmanlabs/postman-cli-action@v1
         with:
           command: 'collection run 53462478-91eaa02d-6ede-435c-89df-67c364eb8802'
