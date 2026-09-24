@@ -23,5 +23,6 @@ spec:
         ports:
           - containerPort: 5000
       imagePullSecrets:
-        - name: my-registry-secret
+        - name: foute-secret
+        # - name: my-registry-secret
          
