@@ -16,6 +16,10 @@ spec:
       labels:
         app: quoterxp
     spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
       containers:
       - name: quoterxp
         image: cdemmer04/student-app:latest
