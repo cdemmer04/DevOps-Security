@@ -2,6 +2,8 @@ FROM python:3.14-slim-bookworm
 
 WORKDIR /app
 
+RUN useradd -u 10001 appuser
+
 RUN pip install --no-cache-dir poetry
 
 RUN poetry config virtualenvs.create false
@@ -15,6 +17,10 @@ RUN poetry install --no-interaction --no-ansi --no-root
 
 # Kopieer de daadwerkelijke applicatie naar /app
 COPY content/ .
+
+RUN chown -R appuser:appuser /app
+
+USER 10001
 
 EXPOSE 5000
 
