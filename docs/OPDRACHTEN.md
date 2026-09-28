@@ -8,7 +8,11 @@ kubectl apply -f https://raw.githubusercontent.com/aquasecurity/kube-bench/main/
 [WARN] 5.3.2 Ensure that all Namespaces have NetworkPolicies defined (Manual)
 [WARN] 5.4.1 Prefer using Secrets as files over Secrets as environment variables (Manual)
 
-TODO: containerd controls toepassen 
+ContainerD security measure
+
+config: /var/lib/rancher/k3s/agent/etc/containerd/config.toml
+Hier staat enable_unprivileged_ports = true en enabled_unprivileged_icmp = true.
+
 TODO: Vragen aan Henk of de check opnieuw moet slagen of dat je alleen moet antonen wat je gedaan hebt
 
 ## deel 2
@@ -18,4 +22,4 @@ ingress-nginx.yaml aanmaken en laten redirecten naar nginx-service op poort 5000
 self-signed certificaat in trusted root op laptop
 
 ## deel 3
-TODO
+Network policy zodat 
