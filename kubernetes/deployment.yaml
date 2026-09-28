@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: student-devsecops
   labels:
-    app: quoterxp
+    app: student-app
 spec:
   replicas: 1
   strategy:
     type: Recreate
   selector:
     matchLabels:
-      app: quoterxp
+      app: student-app
   template:
     metadata:
       labels:
-        app: quoterxp
+        app: student-app
     spec:
       securityContext:
         runAsNonRoot: true

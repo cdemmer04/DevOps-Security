@@ -4,7 +4,7 @@ metadata:
   name: ngnix-service
 spec:
   selector:
-    app: quoterxp
+    app: student-app
   type: NodePort
   ports:
   - protocol: TCP
