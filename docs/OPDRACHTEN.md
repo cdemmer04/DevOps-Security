@@ -22,4 +22,6 @@ ingress-nginx.yaml aanmaken en laten redirecten naar nginx-service op poort 5000
 self-signed certificaat in trusted root op laptop
 
 ## deel 3
-Network policy zodat 
+Network policy zodat de student-app alleen bereikbaar is op poort 5000.
+How-to-test: Dockerfile veranderen naar EXPOSE 5001 en containerport wijzigen naar 5001.
+Verwacht resultaat: Kubernetes weigert de verbinding omdat de netwerkPolicy resource alleen ingress op poort 5000 toestaat naar pods met het label app=student-app
