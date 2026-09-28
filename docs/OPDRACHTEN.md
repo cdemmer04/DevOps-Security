@@ -25,3 +25,5 @@ self-signed certificaat in trusted root op laptop
 Network policy zodat de student-app alleen bereikbaar is op poort 5000.
 How-to-test: Dockerfile veranderen naar EXPOSE 5001 en containerport wijzigen naar 5001.
 Verwacht resultaat: Kubernetes weigert de verbinding omdat de netwerkPolicy resource alleen ingress op poort 5000 toestaat naar pods met het label app=student-app
+
+TODO: flanel ondersteund geen network policies. Er staat in de opdracht wel dat je moet aangeven of je in K3S CNI kunt wisselen. Moet je dat doen? of alleen onderbouwen wat er nu gebeurt?
