@@ -27,3 +27,5 @@ How-to-test: Dockerfile veranderen naar EXPOSE 5001 en containerport wijzigen na
 Verwacht resultaat: Kubernetes weigert de verbinding omdat de netwerkPolicy resource alleen ingress op poort 5000 toestaat naar pods met het label app=student-app
 
 TODO: flanel ondersteund geen network policies. Er staat in de opdracht wel dat je moet aangeven of je in K3S CNI kunt wisselen. Moet je dat doen? of alleen onderbouwen wat er nu gebeurt?
+
+try: /etc/systemd/system/k3s.service iptables version conflict. -- argument toegevoegd aan filetje.
