@@ -7,8 +7,18 @@ IP worker: 13.222.75.52
 kubectl apply -f https://raw.githubusercontent.com/aquasecurity/kube-bench/main/job.yaml
 
 [WARN] 5.2.7 Minimize the admission of root containers (Manual)
+
 [WARN] 5.3.2 Ensure that all Namespaces have NetworkPolicies defined (Manual)
+Status: opgelost
+Validatie: kubectl get networkpolicy --all-namespaces
+Toelichting: moet per namespace/applicatie worden beoordeeld. Voorbeeld van student-app is eenvoudig. Voor andere onderdelen moet onderzocht worden wat de impact is.
+
 [WARN] 5.4.1 Prefer using Secrets as files over Secrets as environment variables (Manual)
+Status: compliant (met uitzondering van Harbor)
+Validatie: kubectl get all -o jsonpath='{range .items[?(@..secretKeyRef)]} {.kind} 
+{.metadata.name} {"\n"}{end}' -A
+
+Toelichting: Deze wordt niet automatisch gescand of hij goed is. De risico's en impact moeten door een organisatie zelf worden ingeschat.
 
 ContainerD security measure
 
