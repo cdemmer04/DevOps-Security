@@ -16,14 +16,12 @@ spec:
       labels:
         app: student-app
     spec:
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 10001
-        runAsGroup: 10001
       containers:
       - name: quoterxp
         image: cdemmer04/student-app:latest
         imagePullPolicy: Always
+        securityContext:
+          privileged: false
         ports:
           - containerPort: 5000
       imagePullSecrets:
