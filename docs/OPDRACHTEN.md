@@ -7,6 +7,8 @@ IP worker: 13.222.75.52
 kubectl apply -f https://raw.githubusercontent.com/aquasecurity/kube-bench/main/job.yaml
 
 [WARN] 5.2.7 Minimize the admission of root containers (Manual)
+Status: deels opgelost. Waarom? omdat dit klakkeloos op system namespaces toepassen onverstandig is. 
+Validatie: kubectl get namespace --show-labels
 
 [WARN] 5.3.2 Ensure that all Namespaces have NetworkPolicies defined (Manual)
 Status: opgelost
@@ -21,9 +23,9 @@ Validatie: kubectl get all -o jsonpath='{range .items[?(@..secretKeyRef)]} {.kin
 Toelichting: Deze wordt niet automatisch gescand of hij goed is. De risico's en impact moeten door een organisatie zelf worden ingeschat.
 
 ContainerD security measure
+Maatregel: aanpassen configuratie zodat communicatie met registries alleen via tls mag verlopen
+https://docs.k3s.io/installation/private-registry#registries-configuration-file
 
-config: /var/lib/rancher/k3s/agent/etc/containerd/config.toml
-Hier staat enable_unprivileged_ports = true en enabled_unprivileged_icmp = true.
 
 TODO: Vragen aan Henk of de check opnieuw moet slagen of dat je alleen moet antonen wat je gedaan hebt
 
