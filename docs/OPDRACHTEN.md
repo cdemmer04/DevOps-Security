@@ -24,6 +24,7 @@ Toelichting: Deze wordt niet automatisch gescand of hij goed is. De risico's en 
 
 ContainerD security measure
 Maatregel: aanpassen configuratie zodat communicatie met registries alleen via tls mag verlopen
+/etc/rancher/k3s/registries.yaml
 https://docs.k3s.io/installation/private-registry#registries-configuration-file
 
 
