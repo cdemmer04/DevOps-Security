@@ -40,3 +40,10 @@ self-signed certificaat in trusted root op laptop
 Network policy zodat de student-app alleen bereikbaar is op poort 5000.
 How-to-test: Dockerfile veranderen zodat applicatie luistert op poort 5001 en containerport in deployment en service wijzigen naar 5001
 Verwacht resultaat: Kubernetes weigert de verbinding omdat de netwerkPolicy resource alleen ingress op poort 5000 toestaat naar pods met het label app=student-app
+
+# Week 6
+
+## deel 1
+alert rules:
+- critical vulnerability vanuit trivy
+- CIs kubernetes benchmark non-compliant
