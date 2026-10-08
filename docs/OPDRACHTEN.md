@@ -44,6 +44,8 @@ Verwacht resultaat: Kubernetes weigert de verbinding omdat de netwerkPolicy reso
 # Week 6
 
 ## deel 1
+admin passwd: kubectl get secret monitoring-grafana -n monitoring -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 alert rules:
 - critical vulnerability vanuit trivy
 - CIs kubernetes benchmark non-compliant
+- Hoeveel 401 requests zijn er op de API? Test: curl -k   -H "Authorization: Bearer $TOKEN"   "$APISERVER/api/v1/namespaces/default/secrets"
