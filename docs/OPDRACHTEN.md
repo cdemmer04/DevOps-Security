@@ -49,3 +49,25 @@ alert rules:
 - critical vulnerability vanuit trivy
 - CIs kubernetes benchmark non-compliant
 - Hoeveel 401 requests zijn er op de API? Test: curl -k   -H "Authorization: Bearer $TOKEN"   "$APISERVER/api/v1/namespaces/default/secrets"
+
+# Week 7
+
+## Deel 1
+Drie maatregelen:
+- 1.5.2 Ensure fs.protected_symlinks is configured (Automated)
+    Doel: Het voorkomen dat een symlink wordt gemaakt in sticky world-writable directories.
+    Verificatie: sysctl fs.protected_symlinks moet fs.protected_symlinks = 1 teruggeven
+- 1.2.1.2 Ensure weak dependencies are configured (Automated)
+    Doel: Niet automatisch niet-noodzakelijke packages installeren. Dit verkleint het aanvalsoppervlak.
+    Verificatie: /usr/bin/apt-config dump | /usr/bin/grep "APT::Install-"
+- 1.2.1.5 Ensure access to /etc/apt/auth.conf.d directory is
+configured (Automated)
+    Doel: /etc/apt/auth.conf.d/ bevat configuratiebestanden die mogelijk gevoelige informatie kunnen bevatten.
+    Verificatie: stat -Lc 'Access: (%a/%A) Uid: ( %u/ %U) Gid: ( %g/ %G)' /etc/apt/auth.conf.
+
+## deel 2
+kubectl apply -f ./serviceaccount.yaml: deze file bevat service account, cluster role, clusterrole binding en secretinformatie
+Token ophalen: kubectl get secret student-app-serviceaccount-token -o=jsonpath='{.data.token}' | base64 --decode
+
+## extra
+Met kubectl config view --raw -o jsonpath='{.clusters[0].cluster.certificate-authority-data}' haal je de configuratie op. Hierbij selecteer je specifiek op het CA-certificaat.

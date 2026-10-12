@@ -1,3 +1,4 @@
 # Negeer .pem files van AWS Academy
 *.pem
 *.crt
+token.txt
